@@ -23,7 +23,6 @@ pipeline {
             sh """
               docker build -t imageName + ":$BUILD_NUMBER"
               """
-            }
           }
         }
         stage('Push image') {
