@@ -21,19 +21,17 @@ pipeline {
         stage('Building image') {
           steps {
             sh """
-              docker build -t imageName + ":$BUILD_NUMBER"
+              docker build -t simple_app
               """
           }
         }
         stage('Push image') {
 steps {
-script {
-          docker.withRegistry('', registryCredentialSet) {            
-          app.push("${env.BUILD_NUMBER}")            
-          app.push("latest")        
-              }    
+sh """ 
+docker tag simple-app localhost:5000/simple-app
+docker push localhost:5000/simple-app
+"""
 }
-}
-         }
     }
+}
 }
