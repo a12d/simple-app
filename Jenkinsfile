@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Cloning git') {
           steps {
-            git 'https://a12d@bitbucket.org/a12d/cartrawler.git'
+            git 'https://github.com/a12d/simple-app.git'
           }
         }
     }
