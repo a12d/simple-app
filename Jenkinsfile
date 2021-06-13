@@ -4,7 +4,7 @@ pipeline {
       gitParameter branch: 'main', branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
     }
     environment { 
-        registry = "https://localhost:5000/simple-app" 
+        registry = "simple-app" 
         dockerImage = '' 
     }
     stages {
