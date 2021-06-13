@@ -2,7 +2,9 @@ pipeline {
     agent any 
     stages {
         stage('say hello') {
+steps {
           echo 'Hello World'
+}
         }
         stage('Cloning git') {
           steps {
