@@ -19,9 +19,9 @@ pipeline {
           }
         }
         stage('Building image') {
-          agent {
-            docker {
- image imageName + ":$BUILD_NUMBER"
+          steps {
+            script {
+              dockerImage = docker.build imageName + ":$BUILD_NUMBER"
             }
           }
         }
