@@ -4,8 +4,8 @@ pipeline {
       gitParameter branch: 'main', branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
     }
     environment { 
-        registry = "a12d/simple-app" 
-        registryCredential = 'dockerhub'
+        imageName = "a12d/simple-app" 
+        registryCredentialSet = 'dockerhub'
     }
     stages {
         stage('say hello') {
@@ -27,10 +27,12 @@ pipeline {
         }
         stage('Push image') {
 steps {
+script {
           docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
           app.push("${env.BUILD_NUMBER}")            
           app.push("latest")        
               }    
+}
 }
          }
     }
